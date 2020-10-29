@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <div class = 'content-error' >
+        <div class = 'div-right-error'>
+            <h2>Página não encontrada</h2>
+            <p >A página que você procura mudou de endereço ou não existe mais.</p>
+            <p >Verifique também se você digitou o endereço corretamente.</p>
+            <p >Acesse 
+                <a href="https://gerencianet.com.br">gerencianet.com.br</a> 
+                ou conheça 
+                <a href="https://gerencianet.com.br/solucoes">
+                    nossas soluções</a>.
+            </p>
+        </div>
+        <div style = 'margin-left: 10em'>
+            <img 
+            style = 'height: 10em'
+            src="{{url_for('static', filename = 'img/error.png')}}">
+        </div>
+    </div>
+{% endblock %}

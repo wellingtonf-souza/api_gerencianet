@@ -83,12 +83,6 @@ button {
   font-size: 2em;
 }
 
-.p-error {
-  font-size: 1.8em;
-  max-width: 19em;
-  line-height: 1.2em;
-}
-
 .content-error {
   margin-top: 10em;
   display: flex;
@@ -102,12 +96,26 @@ button {
 }
 
 #rodape {
-  /* margin-top: 40%; */
   position: fixed;
   bottom: 0;
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.div-right-error {
+  border-right: 1px solid #dfdfdf;
+  padding-right: 10rem;
+}
+
+.div-right-error h2 {
+  max-width: 19em;
+}
+
+.div-right-error p {
+  font-size: 1.8em;
+  max-width: 19em;
+  line-height: 1.2em;
 }
 
 .atributo {

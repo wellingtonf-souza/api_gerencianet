@@ -14,9 +14,14 @@ gn = Gerencianet(credentials)
 app = Flask(__name__)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
+
+
 @app.route('/information_banking_billet/')
 def inform_banking_billet():
-    return render_template('create_banking_billet.html')
+    return render_template('banking_billet.html')
 
 
 @app.route('/create_banking_billet/', methods=['POST'])
