@@ -1,0 +1,124 @@
+body {
+  font-family: "myriad-arabic", sans-serif;
+}
+.bt {
+  height: 120px;
+}
+
+.btn.btn-destaque {
+  border: none;
+  border-color: transparent;
+  background-color: #f26522;
+  *background-color: #f26522;
+  background-image: -moz-linear-gradient(top, #fff, #e6e7e8);
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    from(#fff),
+    to(#e6e7e8)
+  );
+  background-image: -webkit-linear-gradient(top, #fff, #e6e7e8);
+  background-image: -o-linear-gradient(top, #fff, #e6e7e8);
+  background-image: linear-gradient(to bottom, #fff, #e6e7e8);
+}
+
+.btn-warning {
+  background-color: #f26522;
+}
+
+.nav.navbar-nav.pull-right li:nth-child(2) a {
+  text-align: center;
+  display: block;
+  color: #fff;
+  padding: 7px 11px;
+  border-radius: 3px;
+  border: 2px solid #00b4c5;
+  line-height: 1em;
+  margin: 15px 15px 0;
+  background: #00b4c5;
+}
+.container-fluid {
+  font-family: "Bebas Neue";
+  font-size: 1.8em;
+  display: block;
+  padding: 10px 15px;
+}
+.theme-line .navbar-nav a {
+  color: #00b4c5;
+}
+.theme-line .navbar-nav a {
+  color: #bbb;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    padding: 0;
+  }
+
+  .navbar-brand img {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+}
+
+#footer {
+  font-family: myriad-arabic, sans-serif !important;
+  font-size: 1.2em !important;
+  line-height: 1.2em;
+}
+
+button {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.2em !important;
+  margin: 0;
+}
+
+.btn img {
+  margin-left: 0.5em;
+}
+
+.label-inputs {
+  font-family: "myriad-arabic", sans-serif;
+  font-size: 2em;
+}
+
+.p-error {
+  font-size: 1.8em;
+  max-width: 19em;
+  line-height: 1.2em;
+}
+
+.content-error {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dis_10 {
+  margin-top: 20px;
+}
+
+#rodape {
+  /* margin-top: 40%; */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.atributo {
+  color: #009615;
+  font-size: 15px;
+}
+
+em {
+  color: #009615;
+}
+
+.dev {
+  font-size: 16px;
+}

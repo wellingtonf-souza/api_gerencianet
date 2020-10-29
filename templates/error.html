@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <div class = 'content-error' >
+        <div>
+            <h2>Não foi possível solicitar o serviço</h2>
+            <p class= 'p-error'>O serviço que você solicitou retornou um erro.</p>
+            <p class= 'p-error'>Verifique se você digitou os dados da cobrança corretamente.</p>
+            <p class= 'p-error'>Caso o erro persista entre em contato pelos nossos canais de atendimento.</p>
+        </div>
+        <div style = 'margin-left: 10em'>
+            <img 
+            style = 'height: 10em'
+            src="{{url_for('static', filename = 'img/attention.png')}}">
+        </div>
+    </div>
+{% endblock %}

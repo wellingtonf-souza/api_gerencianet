@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename = 'css/bootstrap.css')}}">
+        <script type="text/javascript" 
+        src="{{url_for('static',filename = 'js/jquery-2.2.4.min.js')}}">
+        </script>
+        <script type="text/javascript" 
+        src="{{url_for('static',filename = 'js/bootstrap.js')}}">
+        </script>
+        <script type="text/javascript" 
+        src="{{url_for('static',filename = 'js/jquery.mask.js')}}">
+        </script>
+        <script type="text/javascript" 
+        src="{{url_for('static',filename = 'js/scripts.js')}}">
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/fdq5xil.css">
+        <title></title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                  <a class="navbar-brand" href="/codigos-documentacao/">
+                        <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='images/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li>
+                        <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li>
+
+                    </ul>
+
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar</a></li>
+                        <li><a target="blank"  href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+
+        {% block conteudo %}{% endblock %}
+
+    <div id="rodape" class="footer well">
+
+        <footer class="container-fluid text-center" id="footer" >
+
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='images/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="27">
+            <div class="content-footer">
+                © 2007-2016 Gerencianet. Todos os direitos reservados.<br/>
+                Gerencianet Pagamentos do Brasil Ltda. • CNPJ: 09.089.356/0001-18<br/>
+                Avenida Juscelino Kubitschek, 909 - Ouro Preto, Minas Gerais<br/>
+            </div>
+
+
+        </footer>
+    </div>
+</div>
+</body>
+</html>
