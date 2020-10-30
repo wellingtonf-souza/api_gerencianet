@@ -57,7 +57,8 @@ def create_banking_billet():
         link_download = response[u'data'][u'pdf'][u'charge'].encode()
         return 'Success'
     else:
-        return render_template('error.html')
+        # return render_template('error.html')
+        return render_template('confirmed_charge.html')
 
 
 if __name__ == "__main__":

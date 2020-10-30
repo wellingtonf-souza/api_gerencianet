@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+<div class="content-blocks" style = 'display:block'>
+    <div style='display:flex; justify-content:center; align-items:center'>
+        <h2>Cobrança criada com sucesso</h2>
+        <img 
+        style = 'height: 5em; margin-left: 10px;'
+        src="{{url_for('static',filename='img/success.png')}}">
+    </div>
+
+    <div class="content-blocks" style = 'margin-top:5em'>
+        <a href="#" style = 'margin-right: 15px'>
+            <span title='imprimir'>
+            <img style = 'height: 5em' src="{{url_for('static',filename='img/printer.png')}}">
+            </span>
+        </a>
+        <a href="#" style = 'margin-right: 15px'>
+            <span title='Compartilhar via whatsapp'>
+                <img style = 'height: 5em' src="{{url_for('static',filename='img/whatsapp.png')}}">
+            </span>
+        </a>        
+        <a href="#" style = 'margin-right: 15px'>
+            <span title='Download PDF'>
+                <img style = 'height: 5em' src="{{url_for('static',filename='img/download.png')}}">
+            </span>
+        </a>
+        <a href="#" style = 'margin-right: 15px'>
+            <span title='Copiar código de barras'>
+                <img style = 'height: 5em' src="{{url_for('static',filename='img/copy.png')}}">
+            </span>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
