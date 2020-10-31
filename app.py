@@ -10,6 +10,11 @@ credentials = {
     'sandbox': True
 }
 
+
+def adjust_number_of_whats(s, i=2):
+    return s[:i] + s[i+1:]
+
+
 gn = Gerencianet(credentials)
 app = Flask(__name__)
 
@@ -27,7 +32,8 @@ def inform_banking_billet():
 @app.route('/create_banking_billet/', methods=['POST'])
 def create_banking_billet():
     descricao = request.form['descricao']
-    valor = int(request.form['valor'].replace(',', ''))
+    valor_format_real = request.form['valor']
+    valor = int(valor_format_real.replace(',', ''))
     quantidade = int(request.form['quantidade'])
     nome_cliente = request.form['nome_cliente']
     cpf = request.form['cpf'].replace(".", "").replace("-", "")
@@ -54,11 +60,19 @@ def create_banking_billet():
 
     response = gn.create_charge_onestep(params=None, body=body)
     if response[u'code'] == 200:
-        link_download = response[u'data'][u'pdf'][u'charge'].encode()
-        return 'Success'
+        link_download = response[u'data'][u'pdf'][u'charge']
+        barcode = response[u'data'][u'barcode']
+
+        shareLink = 'https://api.whatsapp.com/send'
+        shareLink += '?phone=55'+adjust_number_of_whats(telefone)+'+&'
+        shareLink += 'text=Olá, segue o boleto no valor de R$ '+valor_format_real+'. '
+        shareLink += 'Cobrança referente à '+descricao+', '
+        shareLink += 'com vencimento para '+vencimento+'. '
+        shareLink += 'Acesse o boleto pelo link: '+link_download+''
+        shareLink += ' ou pague usando o código de barras: '+barcode+'.'
+        return render_template('conf_banking_billet.html', link_down=link_download, shareLink=shareLink, barcode=barcode)
     else:
-        # return render_template('error.html')
-        return render_template('confirmed_charge.html')
+        return render_template('error.html')
 
 
 if __name__ == "__main__":
