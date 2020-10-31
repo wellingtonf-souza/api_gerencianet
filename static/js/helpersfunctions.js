@@ -6,3 +6,12 @@ function copyBarcode(){
     document.execCommand('copy');
     document.body.removeChild(textarea);
 }
+
+function modal(){
+    Swal.fire({
+        title: 'Estamos processando a requisição',
+        willOpen:()=>{
+            Swal.showLoading()
+        }
+    })
+}
