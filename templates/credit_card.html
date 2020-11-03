@@ -1,0 +1,241 @@
+ {% extends "template.html" %}
+ {% block conteudo %}
+<div class="col-lg-12 col-md-12 col-sm-12" style='display:flex; justify-content:center; align-items:center'>
+    <div class="col-lg-8 well">
+        <form id="form" method="POST" action="" class="">
+            <div class="col-lg-3">
+                <h5>Informações do produto/serviço</h5>
+
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputEmail1">Descrição do produto/serviço:</label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="descricao" 
+                    placeholder="Descrição do produto"
+                    value = 'Produto de Teste API Gerencianet'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Valor do produto/serviço: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="valor" 
+                    placeholder="Valor do Produto"
+                    value = '10000'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Quantidade de itens: </label>
+                    <input 
+                    type = 'number' 
+                    id="quantidade"
+                    name="quantidade" 
+                    class="form-control"
+                    value = 1
+                    min = 1>
+                </div>
+
+
+            </div>
+            <div class="col-lg-3">
+                <h5>Informações do cliente</h5>
+
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputEmail1">Nome do cliente: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="nome_cliente" 
+                    placeholder="Nome do cliente"
+                    value= "Gorbadoc Oldbuck">
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">CPF: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="cpf" 
+                    placeholder="CPF"
+                    value = "94271564656">
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Telefone: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="telefone" 
+                    placeholder="Telefone"
+                    value = '51944916523'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Email: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="email" 
+                    placeholder="Email"
+                    value="gorbadoc@email.com">
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Data de nascimento: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="nascimento" 
+                    placeholder=""
+                    value = '1980-08-31'>
+                </div>
+
+
+            </div>
+            <div class="col-lg-3">
+                <h5>Informações do endereço</h5>
+
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputEmail1">Rua: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="rua" 
+                    placeholder="Rua"
+                    value="Bauxita">
+                </div>
+                <div class="form-group">
+                    <label 
+                    class='label-inputs' 
+                    for="exampleInputPassword1">Número: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="numero" 
+                    placeholder="Número"
+                    value="121">
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Bairro: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="bairro" 
+                    placeholder="Bairro"
+                    value='Bauxita'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">CEP: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="cep" 
+                    placeholder="CEP"
+                    value = "35400000">
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Cidade: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="cidade" 
+                    placeholder="Cidade"
+                    value = 'Ouro Preto'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Estado: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="estado" 
+                    placeholder="Estado"
+                    value = "MG">
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>Informações de pagamento</h5>
+
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Número do cartão: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="numero_cartao" 
+                    placeholder="Número do cartão"
+                    value = '4012001038443335'>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' or="exampleInputPassword1">Bandeira: </label>
+                    <select required id="bandeira" class="form-control">
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">MasterCard</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Código de segurança: </label>
+                    <input 
+                    required 
+                    type="text" 
+                    class="form-control" 
+                    id="codigo_seguranca"
+                    placeholder="Código de segurança"
+                    value = "123">
+                </div>
+
+
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Mês de vencimento: </label>
+                    <input 
+                    required
+                    type = 'number' 
+                    id="mes_vencimento"
+                    name="quantidade" 
+                    class="form-control"
+                    value = 1
+                    min = 1
+                    max = 12>
+                </div>
+                <div class="form-group">
+                    <label class='label-inputs' for="exampleInputPassword1">Ano de vencimento: </label>
+                    <input 
+                    required
+                    type = 'number' 
+                    id="ano_vencimento"
+                    name="quantidade" 
+                    class="form-control"
+                    value = 2021
+                    min = 2020
+                    max = 2030>
+                </div>
+                <div id="div_installments" class="form-group alert alert-success">
+                    <label class='label-inputs' for="exampleInputPassword1">Número de parcelas: </label>
+                    <select required style="color: black" id="installments" class="form-control">
+                        <option>Selecione uma opção</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-lg-12" style='z-index: 1'>
+                <button id="ver_parcelas" type="button" class="btn btn-default"> Definir número de parcelas <img
+                        src="{{url_for('static',filename= 'img/next.png')}}"></button>
+                <button id="btn_pg_cartao" type="button" class="btn btn-success hide" onclick='modal()'> Confirmar pagamento <img
+                        src="{{url_for('static',filename= 'img/ok-mark.png')}}"></button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

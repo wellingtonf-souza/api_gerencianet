@@ -10,23 +10,12 @@
     </div>
 
     <div class="content-blocks" style = 'margin-top:5em'>
-        <a href="{{shareLink}}" style = 'margin-right: 15px' target = '_blank'>
-            <span title='Compartilhar via whatsapp'>
-                <img style = 'height: 5em' src="{{url_for('static',filename='img/whatsapp.png')}}">
-            </span>
-        </a>        
-        <a href={{link_down}} style = 'margin-right: 15px' target = '_blank'>
-            <span title='Download PDF'>
-                <img style = 'height: 5em' src="{{url_for('static',filename='img/download.png')}}">
-            </span>
-        </a>
         <a href="#" style = 'margin-right: 15px' onclick="copyCode()">
             <input style='display:none' value = '{{copy}}' id = 'copy'>
-            <span title='Copiar código de barras'>
+            <span title='Copiar charge_id'>
                 <img style = 'height: 5em' src="{{url_for('static',filename='img/copy.png')}}">
             </span>
         </a>
     </div>
 </div>
-
 {% endblock %}

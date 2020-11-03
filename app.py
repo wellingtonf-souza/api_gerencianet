@@ -3,6 +3,12 @@ from gerencianet import Gerencianet
 import json
 
 client = json.load(open('credentials.json'))
+# formato de credentials.json
+#  {
+#     "client_id": "Client_Id_*",
+#     "client_secret": "Client_Secret_*",
+#     "account_identifier": "*"
+#  }
 
 credentials = {
     'client_id': client['client_id'],
@@ -18,6 +24,11 @@ def adjust_number_of_whats(s, i=2):
 gn = Gerencianet(credentials)
 app = Flask(__name__)
 
+# define a variavel account_identifier como global em todos os templates
+@app.context_processor
+def insert_account_identifier():
+    return dict(account_identifier=client['account_identifier'])
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -27,6 +38,11 @@ def page_not_found(e):
 @app.route('/information_banking_billet/')
 def inform_banking_billet():
     return render_template('banking_billet.html')
+
+
+@app.route('/information_credit_card/')
+def information_credit_card():
+    return render_template('credit_card.html')
 
 
 @app.route('/create_banking_billet/', methods=['POST'])
@@ -70,7 +86,62 @@ def create_banking_billet():
         shareLink += 'com vencimento para '+vencimento+'. '
         shareLink += 'Acesse o boleto pelo link: '+link_download+''
         shareLink += ' ou pague usando o código de barras: '+barcode+'.'
-        return render_template('conf_banking_billet.html', link_down=link_download, shareLink=shareLink, barcode=barcode)
+        return render_template('conf_banking_billet.html', link_down=link_download, shareLink=shareLink, copy=barcode)
+    else:
+        return render_template('error.html')
+
+
+@app.route('/create_credit_card/', methods=['POST'])
+def create_credit_card():
+    descricao = request.form['descricao']
+    valor = int(request.form['valor'])
+    quantidade = int(request.form['quantidade'])
+    nome_cliente = request.form['nome_cliente']
+    cpf = request.form['cpf']
+    telefone = request.form['telefone'].replace(" ", "").replace("-", "")
+    rua = request.form['rua']
+    numero = request.form['numero']
+    bairro = request.form['bairro']
+    cep = request.form['cep']
+    cidade = request.form['cidade']
+    estado = request.form['estado']
+    payament_token = request.form['payament_token']
+    installments = int(request.form['installments'])
+    email = request.form['email']
+    nascimento = request.form['nascimento']
+    body = {
+        'items': [{
+            'name': descricao,
+            'value': valor,
+            'amount': quantidade
+        }],
+        'payment': {
+            'credit_card': {
+                'installments': installments,
+                'payment_token': payament_token,
+                'billing_address': {
+                    'street': rua,
+                    'number': numero,
+                    'neighborhood': bairro,
+                    'zipcode': cep,
+                    'city': cidade,
+                    'state': estado
+                },
+                'customer': {
+                    'name': nome_cliente,
+                    'email': email,
+                    'cpf': cpf,
+                    'birth': nascimento,
+                    'phone_number': telefone
+                }
+            }
+        }
+    }
+    response = gn.create_charge_onestep(params=None, body=body)
+    if response[u'code'] == 200:
+        charge_id = str(response[u'data'][u'charge_id'])
+        print('chegou aqui')
+        return render_template('conf_credit_card.html', copy=charge_id)
     else:
         return render_template('error.html')
 

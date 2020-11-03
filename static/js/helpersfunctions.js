@@ -1,6 +1,6 @@
-function copyBarcode(){
+function copyCode(){
     const textarea = document.createElement('textarea');
-    textarea.value = document.getElementById('barcode').value
+    textarea.value = document.getElementById('copy').value
     document.body.appendChild(textarea)
     textarea.select();
     document.execCommand('copy');
