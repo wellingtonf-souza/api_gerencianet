@@ -44,8 +44,6 @@ $(document).ready(function () {
 
         $("#btn_pg_cartao").click(function () {
 
-            $("#myModal").modal('show');
-
             var descricao = $("#descricao").val();
             $('#valor').unmask();
             var valor = $("#valor").val();

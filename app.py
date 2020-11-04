@@ -45,11 +45,16 @@ def information_credit_card():
     return render_template('credit_card.html')
 
 
+@app.route('/information_carnet/')
+def information_carnet():
+    return render_template('carnet.html')
+
+
 @app.route('/create_banking_billet/', methods=['POST'])
 def create_banking_billet():
     descricao = request.form['descricao']
     valor_format_real = request.form['valor']
-    valor = int(valor_format_real.replace(',', ''))
+    valor = int(valor_format_real.replace(',', '').replace('.', ''))
     quantidade = int(request.form['quantidade'])
     nome_cliente = request.form['nome_cliente']
     cpf = request.form['cpf'].replace(".", "").replace("-", "")
@@ -142,6 +147,43 @@ def create_credit_card():
         charge_id = str(response[u'data'][u'charge_id'])
         print('chegou aqui')
         return render_template('conf_credit_card.html', copy=charge_id)
+    else:
+        return render_template('error.html')
+
+
+@app.route('/create_carnet/', methods=['POST'])
+def create_carnet():
+    descricao = request.form['descricao']
+    valor = int(request.form['valor'].replace(',', '').replace('.', ''))
+    quantidade = int(request.form['quantidade'])
+    nome_cliente = request.form['nome_cliente']
+    cpf = request.form['cpf'].replace(".", "").replace("-", "")
+    telefone = request.form['telefone'].replace(" ", "").replace("-", "")
+    email = request.form['email']
+    parcelas = int(request.form['parcelas'])
+    vencimento = request.form['vencimento']
+    message = request.form['instrucao']
+    body = {
+        'items': [{
+            'name': descricao,
+            'value': valor,
+            'amount': quantidade
+        }],
+        'customer': {
+            'name': nome_cliente,
+            'email': email,
+            'cpf': cpf,
+            'phone_number': telefone
+        },
+        'repeats': parcelas,
+        'expire_at': vencimento
+    }
+    if len(message) > 0:
+        body.update({'message': message})
+    response = gn.create_carnet(body=body)
+    if response[u'code'] == 200:
+        print(response)
+        return 'success'
     else:
         return render_template('error.html')
 
