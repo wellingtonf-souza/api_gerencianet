@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+<div class="content-blocks" style = 'display:block'>
+    <div style='display:flex; justify-content:center; align-items:center'>
+        <h2>Cobrança criada com sucesso</h2>
+        <img 
+        style = 'height: 5em; margin-left: 10px;'
+        src="{{url_for('static',filename='img/success.png')}}">
+    </div>
+
+    <div class="content-blocks" style = 'margin-top:5em'> 
+    <table class = 'table-carnet'>
+        <tr>
+            <th>Carnê</th>
+            <th>Download</th>
+        </tr>
+        <tr>
+            <th>{{carnet_id}}</th>
+            <th>
+                <a href={{carnet_link}} style = 'margin-right: 15px' target = '_blank'>
+                        <img style = 'height: 2em' src="{{url_for('static',filename='img/download.png')}}">
+                </a>
+            </th>
+        </tr>
+    </table>
+    </div>
+    <div class="content-blocks" style = 'margin-top:5em'> 
+        <table class = 'table-carnet'>
+            <tr>
+                <th>Parcelas</th>
+                <th>Download</th>
+            </tr>
+            {% for charge in charges %}
+            <tr>
+                <th>{{charge.parcel}}</th>
+                <th>
+                    <a href={{charge.pdf.charge}} style = 'margin-right: 15px' target = '_blank'>
+                            <img style = 'height: 2em' src="{{url_for('static',filename='img/download.png')}}">
+                    </a>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    <!-- <div class="content-blocks" style = 'margin-top:5em'>       
+        <a href={{link_down}} style = 'margin-right: 15px' target = '_blank'>
+            <span title='Download PDF'>
+                <img style = 'height: 5em' src="{{url_for('static',filename='img/download.png')}}">
+            </span>
+        </a>
+    </div> -->
+</div>
+
+{% endblock %}

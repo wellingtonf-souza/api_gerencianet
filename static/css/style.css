@@ -84,7 +84,7 @@ button {
 }
 
 .content-blocks {
-  margin-top: 10em;
+  margin-top: 8em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,4 +135,55 @@ em {
   #rodape {
     position: relative;
   }
+}
+
+@media (max-height: 1070px) {
+  #rodape {
+    position: relative;
+  }
+}
+
+.table-carnet {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 30%;
+  display: table;
+  border: 1px solid #ccc;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.table-carnet tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-carnet tr:nth-child(odd) {
+  background-color: #fff;
+}
+.table-carnet tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.table-carnet td,
+.table-carnet th {
+  padding: 8px 8px;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.table-carnet th:first-child {
+  text-align: left;
+  justify-content: center;
+}
+.table-carnet th:last-child {
+  text-align: center;
+}
+
+.table-carnet th:first-child,
+.table-carnet td:first-child {
+  padding-left: 16px;
+}
+
+.table-carnet {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }

@@ -182,8 +182,10 @@ def create_carnet():
         body.update({'message': message})
     response = gn.create_carnet(body=body)
     if response[u'code'] == 200:
-        print(response)
-        return 'success'
+        carnet_link = response[u'data'][u'pdf'][u'carnet']
+        carnet_id = response[u'data'][u'carnet_id']
+        charges = response[u'data'][u'charges']
+        return render_template('conf_carnet.html', carnet_id=carnet_id, carnet_link=carnet_link, charges=charges)
     else:
         return render_template('error.html')
 
