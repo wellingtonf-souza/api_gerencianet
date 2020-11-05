@@ -137,11 +137,11 @@ em {
   }
 }
 
-@media (max-height: 1070px) {
+/* @media (max-height: 1070px) {
   #rodape {
     position: relative;
   }
-}
+} */
 
 .table-carnet {
   border-collapse: collapse;
@@ -186,4 +186,19 @@ em {
 
 .table-carnet {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.div-right-index {
+  border-right: 1px solid #dfdfdf;
+  padding-right: 2rem;
+}
+
+.div-right-index h2 {
+  max-width: 12em;
+}
+
+.div-right-index p {
+  font-size: 1.8em;
+  max-width: 12em;
+  line-height: 1.2em;
 }
