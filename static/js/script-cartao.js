@@ -1,4 +1,4 @@
-$(document).ready(function () {
+pip$(document).ready(function () {
     //Aplicando as mascaras nos inputs cpf, valor e vencimento.
     $('#cpf').mask('000.000.000-00', {reverse: true});
     $('#valor').mask('000.000.000.000.000,00', {reverse: true});

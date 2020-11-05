@@ -24,6 +24,7 @@ def adjust_number_of_whats(s, i=2):
 gn = Gerencianet(credentials)
 app = Flask(__name__)
 
+
 # define a variavel account_identifier como global em todos os templates
 @app.context_processor
 def insert_account_identifier():
